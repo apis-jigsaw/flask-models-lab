@@ -1,7 +1,4 @@
 class Venue():
-    __table__ = 'venues'
-    columns = ['id', 'foursquare_id', 'name', 'price',
-            'rating', 'likes', 'menu_url']
 
     def __init__(self, **kwargs):
         for key in kwargs.keys():

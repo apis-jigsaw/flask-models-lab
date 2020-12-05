@@ -1,6 +1,4 @@
 class Category:
-    __table__ = 'categories'
-    columns = ['id', 'name']
 
     def __init__(self, **kwargs):
         for key in kwargs.keys():
