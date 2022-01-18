@@ -19,4 +19,3 @@ def close_db(e=None):
 def drop_records(cursor, conn, table_name):
     cursor.execute(f"DELETE FROM {table_name};")
     conn.commit()
-
