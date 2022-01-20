@@ -1,10 +1,12 @@
 def build_from_record(Class, record):
-    if not record: return None
+    if not record:
+        return None
 
     attr = dict(zip(Class.attributes, record))
     obj = Class()
     obj.__dict__ = attr
     return obj
+
 
 def build_from_records(Class, records):
     return [build_from_record(Class, record) for record in records]
@@ -16,9 +18,11 @@ def find_all(Class, cursor):
     records = cursor.fetchall()
     return [build_from_record(Class, record) for record in records]
 
+
 def values(obj):
     venue_attrs = obj.__dict__
     return [venue_attrs[attr] for attr in obj.attributes if attr in venue_attrs.keys()]
+
 
 def keys(obj):
     venue_attrs = obj.__dict__
@@ -35,7 +39,7 @@ def save(obj, conn, cursor):
     cursor.execute(select_str)
     last_record = cursor.fetchone()
     return build_from_record(type(obj), last_record)
-    
 
 
-
+# ORM used to construct python objects complete with attributes from the return
+# from a relational database (or API?)
